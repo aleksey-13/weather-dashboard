@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { setCurrentCity } from '@/store/slices/favoriteCitiesSlice'
@@ -12,10 +11,6 @@ import { weatherService } from '@/services/weather.service'
 export const useFetchWeather = () => {
 	const dispatch = useDispatch()
 
-	let timer
-
-	useEffect(() => clearTimeout(timer), [])
-
 	const fetchWeather = async city => {
 		dispatch(setLoading())
 
@@ -27,10 +22,12 @@ export const useFetchWeather = () => {
 
 				return responce
 			})
-			.catch(errorCatch)
-			.finally(() => {
-				timer = setTimeout(() => dispatch(stopSloading()), 250)
+			.catch(error => {
+				errorCatch(error)
+
+				throw new Error(error)
 			})
+			.finally(() => dispatch(stopSloading()))
 	}
 
 	return { fetchWeather }
