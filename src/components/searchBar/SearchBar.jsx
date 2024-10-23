@@ -19,7 +19,7 @@ export const SearchBar = props => {
 	const { fetchWeather } = useFetchWeather()
 
 	const onSubmit = ({ cityName }) =>
-		fetchWeather(cityName).then(responce => {
+		fetchWeather(cityName.trim()).then(responce => {
 			addNewCity(responce.cityName)
 
 			reset()
