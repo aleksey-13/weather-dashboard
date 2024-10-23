@@ -1,0 +1,49 @@
+.searchBar 
+    border-radius: 8px
+    border: 1px solid #323232
+
+    background-color: var(--white)
+
+    display: flex
+    align-items: center
+
+    overflow: hidden
+
+    height: 32px
+
+.searchInput
+    padding: 4px 10px
+    width: 100%
+
+    font-size: 14px
+
+    background-color: transparent
+
+.searchButton
+    background-color: #e96e50
+    color: var(--white)
+
+    height: 100%
+    padding: 4px 12px
+
+    font-size: 16px
+    font-weight: 500
+
+    cursor: pointer
+
+    display: flex
+    align-items: center
+    gap: 4px
+
+    &:hover
+        .searchButtonIcon
+            transform: translateX(2px)
+
+.searchButtonIcon
+    width: 16px
+    height: 16px
+
+    fill: currentColor
+
+    transform: translateX(0)
+    transition: transform 200ms ease-in

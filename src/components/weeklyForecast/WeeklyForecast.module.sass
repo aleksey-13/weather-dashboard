@@ -1,0 +1,13 @@
+.weeklyForecast
+    --columns: 5
+
+    display: grid
+    grid-template-columns: repeat(var(--columns), 1fr)
+    gap: 16px
+
+    overflow-x: auto
+
+    -ms-overflow-style: none 
+    scrollbar-width: none
+    &::-webkit-scrollbar 
+        display: none

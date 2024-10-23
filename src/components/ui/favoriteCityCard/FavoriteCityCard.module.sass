@@ -1,0 +1,47 @@
+.favoriteCityCard
+    padding: 32px 24px
+
+    background: rgb(255,255,255)
+    background: radial-gradient(circle, rgba(255,255,255,.2) 0%, rgba(238,237,237,.1) 100%)
+    border-radius: 8px
+
+    text-align: center
+
+    cursor: pointer
+
+    transition: box-shadow 150ms ease-in-out
+
+    position: relative
+
+    &:hover
+        box-shadow: 0 0 10px rgba(0,0,0,.3)
+
+        .deleteButton
+            opacity: 1
+    
+    &.active
+        box-shadow: 0 0 10px rgba(0,0,0,.3)
+
+.deleteButton
+    position: absolute
+    top: 4px
+    right: 4px
+
+    display: flex
+    align-items: center
+    justify-content: center
+
+    background-color: transparent
+
+    opacity: 0
+
+    transition: opacity 200ms ease-in
+
+    cursor: pointer
+
+.deleteButtonIcon
+    stroke: var(--white)
+    stroke-width: 2px
+
+    width: 24px
+    height: 24px

@@ -1,0 +1,24 @@
+=r($width)
+  @media only screen and (max-width: $width+ "px")
+    @content
+=rh($width)
+  @media only screen and (max-height: $width+ "px")
+    @content
+=rmin($width)
+  @media only screen and (min-width: $width+ "px")
+    @content
+=lg
+  +r(1439)
+    @content
+
+=md
+  +r(1023)
+    @content
+
+=sm
+  +r(767)
+    @content
+
+=xs
+  +r(599)
+    @content

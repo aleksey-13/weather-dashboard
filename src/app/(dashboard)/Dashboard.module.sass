@@ -1,0 +1,69 @@
+.page
+    background: rgb(5,38,82)
+    background: linear-gradient(315deg, rgba(5,38,82,1) 0%, rgba(45,156,219,1) 100%)
+
+.inner
+    --columns: 5
+    display: grid
+    grid-template-rows: 100px 220px minmax(100px, max-content)
+    grid-template-columns: repeat(var(--columns), 1fr)
+    grid-template-areas: 'h h . sb sb' 'ws ws wf wf wf' 'cl cl cl cl cl'
+    gap: 20px 0 
+
+    position: relative
+
+    min-height: 100dvh
+    min-height: 100vh
+
+    padding-top: 40px
+
+    +r(1200)
+        grid-template-areas: 'h h sb sb sb' 'ws ws ws ws .' 'wf wf wf wf wf' 'cl cl cl cl cl'
+        grid-template-rows: 100px 100px 220px minmax(100px, max-content)
+
+    +sm
+        --columns: 1
+        grid-template-areas: 'sb' 'h' 'ws' 'wf' 'cl'
+        grid-template-rows: 1fr 120px 100px 220px minmax(100px, max-content)
+
+.head
+    // head
+    grid-area: h
+    align-self: center
+
+.searchBar
+    // search_bar
+    grid-area: sb
+    align-self: center
+
+.weatherStatus
+    // weather_status
+    grid-area: ws
+
+    +rmin(1201)
+        border-right: 1px solid rgba(255,255,255, 0.3)
+
+.weeklyForecast
+    // weekly_forecast
+    grid-area: wf
+
+    padding: 20px 0
+    
+    +r(1200)
+        border-top: 1px solid rgba(255,255,255, 0.3)
+        
+        padding-bottom: 0
+
+.favoriteCitiesList
+    // cities_list
+    grid-area: cl
+
+    border-top: 1px solid rgba(255,255,255, 0.3)
+
+    padding: 40px 0
+
+.loader
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
