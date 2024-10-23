@@ -4,7 +4,8 @@ export const errorCatch = error => {
 	const message = error?.response?.data?.message
 
 	console.error('ERROR: ', message)
-	toast.success(`Could not fetch, received - ${message}`)
+
+	toast.error(`Could not fetch, received - ${message}`)
 
 	return message
 }

@@ -27,9 +27,6 @@ export const Dashboard = () => {
 						<WeatherStatus className={s.weatherStatus} />
 						<WeeklyForecast className={s.weeklyForecast} />
 						<FavoriteCitiesList className={s.favoriteCitiesList} />
-						{/* {renderContent} */}
-						{/* {!isLoading && renderContent} */}
-						{/* {isLoading && <Loader className={s.loader} />} */}
 					</div>
 				</SkeletonTheme>
 			</Wrapper>

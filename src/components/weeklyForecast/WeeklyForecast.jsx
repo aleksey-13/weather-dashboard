@@ -18,6 +18,7 @@ export const WeeklyForecast = ({ className }) => {
 
 	const { fetchWeeklyForecast } = useFetchWeeklyForecast()
 
+	// Update the weekly forecast when a city changed
 	useEffect(() => {
 		if (!weatherStatus) return
 
@@ -37,7 +38,9 @@ export const WeeklyForecast = ({ className }) => {
 
 	return (
 		<ul className={rootCn}>
+			{/* If fetched data is empty or a request in proccess show Skeleton */}
 			{(isLoading || !weeklyForecast) && renderSekeleton}
+
 			{weeklyForecast && !isLoading && renderContent}
 		</ul>
 	)

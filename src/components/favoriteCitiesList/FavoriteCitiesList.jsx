@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'sonner'
 
 import { DEFAULT_CITY, FAVORITE_CITIES_KEY } from '@/constans/common.constans'
 
@@ -27,12 +28,14 @@ export const FavoriteCitiesList = props => {
 	useEffect(() => {
 		const storagedCities = storage(FAVORITE_CITIES_KEY)
 
+		// If LS is empty set default city to fetch current weather
 		if (!storagedCities || isEmpty(storagedCities)) {
 			fetchWeather(DEFAULT_CITY)
 		} else {
+			// If LS has a data. Set first city from the list and the fetch current weather
 			fetchWeather(storagedCities[0])
-			dispatch(setCurrentCity(storagedCities[0]))
 			dispatch(setCities(storagedCities))
+			dispatch(setCurrentCity(storagedCities[0]))
 		}
 	}, [])
 
@@ -41,8 +44,11 @@ export const FavoriteCitiesList = props => {
 
 		const updatedCities = cities.filter(c => c !== city)
 
+		// Update the favorite cities store after delete
 		dispatch(setCities(updatedCities))
 		storage(FAVORITE_CITIES_KEY, updatedCities)
+
+		toast.success(`${city} city has been deleted`)
 	}
 
 	const selectCity = city => {

@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	sassOptions: {
-		// @import "/src/styles/variables.sass"
-		additionalData: `
-        @import "/src/styles/mixins.sass"`
+		additionalData: `@import "/src/styles/mixins.sass"`
 	},
 	images: {
-		domains: ['openweathermap.org']
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'openweathermap.org'
+			}
+		]
 	},
 	webpack(config, options) {
 		config.module.rules.push({

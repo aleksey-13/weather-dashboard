@@ -6,8 +6,6 @@ import SearchIcon from '@/assets/icons/search.svg'
 import { useFetchWeather } from '@/hooks/useFetchWeather'
 import { useStorageCity } from '@/hooks/useStorageCity'
 
-import { errorCatch } from '@/api/error'
-
 import s from './SearchBar.module.sass'
 
 export const SearchBar = props => {
@@ -23,6 +21,7 @@ export const SearchBar = props => {
 	const onSubmit = ({ cityName }) =>
 		fetchWeather(cityName.trim())
 			.then(responce => {
+				// Save the current city into LS and Store
 				addNewCity(responce.cityName)
 
 				reset()

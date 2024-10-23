@@ -69,7 +69,9 @@ export const WeatherStatus = props => {
 			className={rootCn}
 			{...rest}
 		>
+			{/* If fetched data is empty or a request in proccess show Skeleton */}
 			{(!weatherStatus || isLoading) && <WeatherStatusSkeleton />}
+
 			{weatherStatus && !isLoading && renderContent}
 		</div>
 	)
