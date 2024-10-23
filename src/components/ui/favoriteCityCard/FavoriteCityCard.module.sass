@@ -33,11 +33,12 @@
 
     background-color: transparent
 
-    opacity: 0
-
-    transition: opacity 200ms ease-in
-
     cursor: pointer
+
+    +rmin(1023)
+        opacity: 0
+        
+        transition: opacity 200ms ease-in
 
 .deleteButtonIcon
     stroke: var(--white)
