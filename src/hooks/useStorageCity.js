@@ -12,7 +12,7 @@ export const useStorageCity = () => {
 	const cities = useSelector(state => state.favoriteCities.cities)
 
 	const addNewCity = cityName => {
-		if (cities && cities.includes(cityName)) return
+		if (cities.includes(cityName)) return
 
 		const updatedCities = [cityName, ...cities]
 
